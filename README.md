@@ -2,8 +2,7 @@
 Write Service Fabric Serilog events to Application Insights
 
 
-To configure the sink in C# code, call WriteTo.File() during logger configuration:
-
-var log = new LoggerConfiguration()
-    .WriteTo.File("log.txt", rollingInterval: RollingInterval.Day)
-    .CreateLogger();
+To configure ILoggerFactory:
+```csharp
+ILoggerFactory loggerFactory = new LoggerFactoryBuilder(context).CreateLoggerFactory("ApplicationInsightsKey");
+loggerFactory.CreateLogger<Service>()
