@@ -1,0 +1,159 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Project.ServiceFabric.Logging</name>
+    </assembly>
+    <members>
+        <member name="T:Project.ServiceFabric.Logging.Extensions.LoggerExtensions">
+            <summary>
+            Logger extension for service fabric dependent classes
+            </summary>
+        </member>
+        <member name="M:Project.ServiceFabric.Logging.Extensions.LoggerExtensions.LogDependency``2(Microsoft.Extensions.Logging.ILogger,System.Linq.Expressions.Expression{System.Func{``0,System.Threading.Tasks.Task{``1}}},System.DateTime,System.TimeSpan,System.Boolean)">
+            <summary>
+            Extension for Logging dependencies
+            </summary>
+            <param name="logger"></param>
+            <param name="callMethod"></param>
+            <param name="started"></param>
+            <param name="duration"></param>
+            <param name="success"></param>
+            <typeparam name="TService"></typeparam>
+            <typeparam name="TResult"></typeparam>
+        </member>
+        <member name="M:Project.ServiceFabric.Logging.Extensions.LoggerExtensions.LogDependency``1(Microsoft.Extensions.Logging.ILogger,System.Linq.Expressions.Expression{System.Func{``0,System.Threading.Tasks.Task}},System.DateTime,System.TimeSpan,System.Boolean)">
+            <summary>
+            Extension for Logging dependencies
+            </summary>
+            <param name="logger"></param>
+            <param name="callMethod"></param>
+            <param name="started"></param>
+            <param name="duration"></param>
+            <param name="success"></param>
+            <typeparam name="TService"></typeparam>
+        </member>
+        <member name="M:Project.ServiceFabric.Logging.Extensions.LoggerExtensions.LogDependency(Microsoft.Extensions.Logging.ILogger,System.String,System.String,System.DateTime,System.TimeSpan,System.Boolean,Microsoft.ServiceFabric.Actors.ActorId)">
+            <summary>
+            Extension for Logging dependencies
+            </summary>
+            <param name="logger"></param>
+            <param name="service"></param>
+            <param name="method"></param>
+            <param name="started"></param>
+            <param name="duration"></param>
+            <param name="success"></param>
+            <param name="actorId"></param>
+        </member>
+        <member name="M:Project.ServiceFabric.Logging.Extensions.LoggerExtensions.LogActorMethod``1(Microsoft.Extensions.Logging.ILogger,Microsoft.ServiceFabric.Actors.Runtime.ActorMethodContext,System.DateTime,System.TimeSpan)">
+            <summary>
+            Extension for Logging method of actors
+            </summary>
+            <param name="logger"></param>
+            <param name="context"></param>
+            <param name="started"></param>
+            <param name="duration"></param>
+            <typeparam name="TActor"></typeparam>
+        </member>
+        <member name="M:Project.ServiceFabric.Logging.Extensions.LoggerExtensions.LogStatelessServiceStartedListening``1(Microsoft.Extensions.Logging.ILogger,System.String)">
+            <summary>
+            Extension for Logging listeners in stateless services
+            </summary>
+            <param name="logger"></param>
+            <param name="endpoint"></param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Project.ServiceFabric.Logging.Extensions.LoggerExtensions.LogStatefulServiceStartedListening``1(Microsoft.Extensions.Logging.ILogger,System.String)">
+            <summary>
+            Extension for Logging listeners in stateful services
+            </summary>
+            <param name="logger"></param>
+            <param name="endpoint"></param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Project.ServiceFabric.Logging.Extensions.LoggerExtensions.LogStatelessServiceInitializationFailed``1(Microsoft.Extensions.Logging.ILogger,System.Exception)">
+            <summary>
+            Extension for Logging initialization of stateless service
+            </summary>
+            <param name="logger"></param>
+            <param name="exception"></param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Project.ServiceFabric.Logging.Extensions.LoggerExtensions.LogStatefulServiceInitializationFailed``1(Microsoft.Extensions.Logging.ILogger,System.Exception)">
+            <summary>
+            Extension for Logging initialization of stateful service
+            </summary>
+            <param name="logger"></param>
+            <param name="exception"></param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Project.ServiceFabric.Logging.Extensions.LoggerExtensions.LogActorHostInitializationFailed``1(Microsoft.Extensions.Logging.ILogger,System.Exception)">
+            <summary>
+            Extension for Logging initialization of actor
+            </summary>
+            <param name="logger"></param>
+            <param name="exception"></param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="T:Project.ServiceFabric.Logging.ILoggerFactoryBuilder">
+            <summary>
+            Interface for logging which can writes logs in stateful/stateless service, actors, asp.net core applications 
+            </summary>
+        </member>
+        <member name="M:Project.ServiceFabric.Logging.ILoggerFactoryBuilder.CreateLoggerFactory(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="aiKey"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Project.ServiceFabric.Logging.LoggerFactoryBuilder">
+            <summary>
+            Implementation of <see cref="T:Project.ServiceFabric.Logging.ILoggerFactoryBuilder"/> 
+            </summary>
+        </member>
+        <member name="M:Project.ServiceFabric.Logging.LoggerFactoryBuilder.#ctor(System.Fabric.ServiceContext)">
+            <summary>
+            Create a new instance
+            </summary>
+            <param name="context">The <see cref="T:System.Fabric.ServiceContext"/> of the service or actor to monitor</param>
+        </member>
+        <member name="M:Project.ServiceFabric.Logging.LoggerFactoryBuilder.CreateLoggerFactory(System.String,System.String)">
+            <summary>
+            Creates an instance of <see cref="T:Microsoft.Extensions.Logging.ILoggerFactory"/> that provides logging to application insights using Serilog
+            </summary>
+            <param name="sectionName">Section name from service fabric config</param>
+            <param name="parameterName">Parameter name from service fabric config</param>
+            <returns>An instance of <see cref="T:Microsoft.Extensions.Logging.LoggerFactory"/></returns>
+        </member>
+        <member name="M:Project.ServiceFabric.Logging.LoggerFactoryBuilder.CreateLoggerFactory(System.String)">
+            <summary>
+            Creates an instance of <see cref="T:Microsoft.Extensions.Logging.ILoggerFactory"/> that provides logging to application insights using Serilog
+            </summary>
+            <param name="aiKey">The Application Insights key used for logging</param>
+            <returns>An instance of <see cref="T:Microsoft.Extensions.Logging.LoggerFactory"/></returns>
+        </member>
+        <member name="T:Project.ServiceFabric.Logging.Middleware.RequestTrackingMiddleware">
+            <summary>
+            Middleware for logging requests for AspNet Core application. 
+            </summary>
+        </member>
+        <member name="M:Project.ServiceFabric.Logging.Middleware.RequestTrackingMiddleware.#ctor(Microsoft.AspNetCore.Http.RequestDelegate,Microsoft.Extensions.Logging.ILogger,Project.Common.Interfaces.ITraceIdentifierProvider,Microsoft.IO.RecyclableMemoryStreamManager)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Project.ServiceFabric.Logging.Middleware.RequestTrackingMiddleware.Invoke(Microsoft.AspNetCore.Http.HttpContext,System.Fabric.StatelessServiceContext)">
+            <summary>
+            Invoke request tracking middleware
+            </summary>
+            <param name="context"></param>
+            <param name="serviceContext"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Project.ServiceFabric.Logging.Middleware.RequestTrackingMiddlewareExtensions">
+            <summary>
+            Extension for registration <see cref="T:Project.ServiceFabric.Logging.Middleware.RequestTrackingMiddleware"/>
+            </summary>
+        </member>
+    </members>
+</doc>

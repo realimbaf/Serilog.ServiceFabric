@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Project.ServiceFabric.Logging.Abstractions</name>
+    </assembly>
+    <members>
+        <member name="T:Project.ServiceFabric.Logging.Abstractions.Constants.HeaderIdentifiers">
+            <summary>
+            Set of constants that identify headers in remoting calls
+            </summary>
+        </member>
+        <member name="F:Project.ServiceFabric.Logging.Abstractions.Constants.HeaderIdentifiers.TraceId">
+            <summary>
+            Name of the header that contains the trace id
+            </summary>
+        </member>
+        <member name="F:Project.ServiceFabric.Logging.Abstractions.Constants.ContentTypes.Json">
+            <summary>
+            Content type is Json
+            </summary>
+        </member>
+        <member name="M:Project.ServiceFabric.Logging.Abstractions.LoggerExtensions.LogMetric(Microsoft.Extensions.Logging.ILogger,System.String,System.Double)">
+            <summary>
+            Extension for Logging metrics
+            </summary>
+            <param name="logger"></param>
+            <param name="name"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:Project.ServiceFabric.Logging.Abstractions.LoggerExtensions.LogMetric(Microsoft.Extensions.Logging.ILogger,System.String,System.Double,System.Double,System.Double)">
+            <summary>
+            Extension for Logging metrics
+            </summary>
+            <param name="logger"></param>
+            <param name="name"></param>
+            <param name="value"></param>
+            <param name="max"></param>
+            <param name="min"></param>
+        </member>
+        <member name="M:Project.ServiceFabric.Logging.Abstractions.LoggerExtensions.LogDependency(Microsoft.Extensions.Logging.ILogger,System.String,System.String)">
+            <summary>
+            Extension for Logging dependencies
+            </summary>
+            <param name="logger"></param>
+            <param name="serviceName"></param>
+            <param name="data"></param>
+        </member>
+        <member name="M:Project.ServiceFabric.Logging.Abstractions.LoggerExtensions.LogDependency(Microsoft.Extensions.Logging.ILogger,System.String,System.String,System.DateTime,System.TimeSpan,System.Boolean)">
+            <summary>
+            Extension for Logging dependencies
+            </summary>
+            <param name="logger"></param>
+            <param name="serviceName"></param>
+            <param name="data"></param>
+            <param name="started"></param>
+            <param name="duration"></param>
+            <param name="success"></param>
+        </member>
+        <member name="M:Project.ServiceFabric.Logging.Abstractions.LoggerExtensions.LogRequest(Microsoft.Extensions.Logging.ILogger,Project.ServiceFabric.Logging.Abstractions.Models.HttpRequestOption,Project.ServiceFabric.Logging.Abstractions.Models.HttpResponseOption,System.DateTime,System.TimeSpan)">
+            <summary>
+            Extension for Logging requests
+            </summary>
+            <param name="logger"></param>
+            <param name="responseOptions"></param>
+            <param name="started"></param>
+            <param name="duration"></param>
+            <param name="requestOptions"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Project.ServiceFabric.Logging.Abstractions.LoggerExtensions.LogException(Microsoft.Extensions.Logging.ILogger,System.Exception,System.String,System.Object[])">
+            <summary>
+            Extension for Logging Exception. USE IT for logging exceptions instead of LogCritical and LogError.
+            </summary>
+            <param name="logger"></param>
+            <param name="exception">The exception to log.</param>
+            <param name="message">Format string of the log message in message template format. Example: <code>"User {User} logged in from {Address}"</code></param>
+            <param name="args">An object array that contains zero or more objects to format.</param>
+        </member>
+    </members>
+</doc>
