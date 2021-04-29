@@ -1,5 +1,5 @@
 # Serilog.ServiceFabric
-Write Service Fabric Serilog events to Application Insights by overriding the standard .net core IloggerFactory
+Write Serilog events in Service Fabric to Application Insights by overriding the standard .net core IloggerFactory
 
 
 To configure ILoggerFactory:
