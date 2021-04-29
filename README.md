@@ -6,3 +6,4 @@ To configure ILoggerFactory:
 ```csharp
 ILoggerFactory loggerFactory = new LoggerFactoryBuilder(context).CreateLoggerFactory("ApplicationInsightsKey");
 loggerFactory.CreateLogger<Service>()
+
